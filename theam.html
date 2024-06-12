@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>theam</title>
+        <style>
+            body {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                font-size: 5em;
+                height: 100vh;
+                padding: 0;
+                margin: 0;
+            }
+            button {
+                padding: 1.2em;
+                font-size: 20px;
+            }
+        </style>
+    </head>
+    <body>
+        <div>Hello, World.</div>
+        <button onclick="change()">Change Color</button>
+
+        <script>
+            ele = document.querySelector("body");
+            btn = document.getElementsByTagName("button");
+
+            ele.style.backgroundColor = localStorage.getItem("bg");
+            ele.style.color = localStorage.getItem("color");
+
+            function change() {
+                if (
+                    localStorage.getItem("bg") &&
+                    localStorage.getItem("color")
+                ) {
+                    if (
+                        localStorage.getItem("bg") == "black" &&
+                        localStorage.getItem("color") == "white"
+                    ) {
+                        localStorage.setItem("bg", "white");
+                        localStorage.setItem("color", "black");
+                    } else if (
+                        localStorage.getItem("bg") == "white" &&
+                        localStorage.getItem("color") == "black"
+                    ) {
+                        localStorage.setItem("bg", "black");
+                        localStorage.setItem("color", "white");
+                    }
+                } else {
+                    localStorage.setItem("bg", "black");
+                    localStorage.setItem("color", "white");
+                }
+                sessionStorage.setItem("color", localStorage.getItem("color"));
+                sessionStorage.setItem("bg", localStorage.getItem("bg"));
+
+                ele.style.backgroundColor = localStorage.getItem("bg");
+                ele.style.color = localStorage.getItem("color");
+            }
+        </script>
+    </body>
+</html>

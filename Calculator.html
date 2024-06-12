@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <link rel="stylesheet" href="Calculator.css" />
+    </head>
+    <body>
+        <div class="container">
+            <div class="bod-cal">
+                <div id="dis"></div>
+
+                <div id="zero" onclick="send2dis(0)">0</div>
+                <div onclick="send2dis('1')">1</div>
+                <div onclick="send2dis('2')">2</div>
+                <div onclick="send2dis('3')">3</div>
+                <div onclick="send2dis('4')">4</div>
+                <div onclick="send2dis('5')">5</div>
+                <div onclick="send2dis('6')">6</div>
+                <div onclick="send2dis('7')">7</div>
+                <div onclick="send2dis('8')">8</div>
+                <div onclick="send2dis('9')">9</div>
+                <div class="op sub" onclick="send2dis('-')">-</div>
+                <div class="op add" onclick="send2dis('+')">+</div>
+                <div class="op mult" onclick="send2dis('*')">*</div>
+                <div class="op divi" onclick="send2dis('/')">/</div>
+                <div id="eq" onclick="calc()">=</div>
+                <div id="res" onclick="clearr()">C</div>
+            </div>
+        </div>
+
+        <script>
+            dis = document.getElementById("dis");
+
+            function send2dis(e) {
+                dis.innerHTML += e;
+            }
+            function calc() {
+                dis.innerHTML = eval(dis.innerHTML);
+            }
+            function clearr() {
+                dis.innerHTML = "";
+            }
+        </script>
+    </body>
+</html>
